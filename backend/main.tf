@@ -1,6 +1,6 @@
 
 resource "aws_s3_bucket" "tf_state" {
-  bucket = "my-unique-tf-state-12345"
+  bucket = "terraform-state-333982363626-ap-south-1-an"
 }
 
 resource "aws_s3_bucket_versioning" "versioning" {
