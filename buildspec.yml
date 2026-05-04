@@ -10,12 +10,14 @@ phases:
 
   pre_build:
     commands:
-      - echo "Checking files"
-      - ls -la
-      - cd main  
+      - cd main
       - terraform init -reconfigure
 
   build:
     commands:
-      - terraform plan
-      - terraform destroy -auto-approve
+      - terraform plan -lock-timeout=300s
+      - terraform destroy -auto-approve -lock-timeout=300s
+
+  post_build:
+    commands:
+      - echo "Terraform run completed"
