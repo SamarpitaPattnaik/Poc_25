@@ -3,7 +3,6 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Installing Terraform
       - yum install -y unzip
       - curl -O https://releases.hashicorp.com/terraform/1.6.6/terraform_1.6.6_linux_amd64.zip
       - unzip terraform_1.6.6_linux_amd64.zip
@@ -11,16 +10,12 @@ phases:
 
   pre_build:
     commands:
-      - echo Initializing Terraform
+      - echo "Checking files"
+      - ls -la
+      - cd main  
       - terraform init -reconfigure
 
   build:
     commands:
-      - echo Planning Terraform
       - terraform plan
-      - echo Applying Terraform
       - terraform apply -auto-approve
-
-artifacts:
-  files:
-    - '**/*'
