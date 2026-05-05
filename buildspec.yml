@@ -16,8 +16,8 @@ phases:
   build:
     commands:
       - terraform plan -lock-timeout=300s
-      - terraform apply -auto-approve -lock-timeout=300s
-      #- terraform destroy -auto-approve -lock-timeout=300s
+      #- terraform apply -auto-approve -lock-timeout=300s
+      - terraform destroy -auto-approve -lock-timeout=300s
   post_build:
     commands:
       - echo "Terraform run completed"
